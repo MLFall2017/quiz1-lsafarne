@@ -10,3 +10,4 @@ k=2 #number of principal components to keep
 pcaMatrix=pca(dataSet,k)
 y=np.matmul(dataSet,pcaMatrix)
 print(y)
+
