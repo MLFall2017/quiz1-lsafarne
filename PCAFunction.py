@@ -17,12 +17,15 @@ def pca(dataSet,k):
     print(mean_cent_data.shape)
     # -------------------Step 3: Computing Covariance Matrix---------------------
     cov_data = np.cov(mean_cent_data.T)
-    print(np.cov(mean_cent_data[:,0],mean_cent_data[:,1]))
-    print(cov_data)
+    print("Covariance matrix is: {}".format(cov_data))
+    print("Variance of x: {}".format(cov_data[0,0]))
+    print("Covariance matrix for x,y: {}".format(np.cov(mean_cent_data[:,0],mean_cent_data[:,1])))
+    print("Covariance matrix for y,z: {}".format(np.cov(mean_cent_data[:,1],mean_cent_data[:,2])))
+
     # -------------------Step 4: Computing Eigenvalues and EigenVectors-----------
     eig_vals, eig_vec = la.eig(cov_data)
-    print("eigvalues is {}".format(eig_vals))
-    print("eigenVectors is {}".format(eig_vec))
+    print("eigvalues are {}".format(eig_vals))
+    print("eigenVectors are {}".format(eig_vec))
 
     # ------------------Step 5: Sorting Eigenvalues----------------------
     eig_val_vec = [(eig_vals[i], eig_vec[:, i]) for i in range(len(eig_vals))]
@@ -38,6 +41,6 @@ def pca(dataSet,k):
             break
 
     transform=np.array(temp)
-    print(transform)
+    print("transform matrix is:{}".format(transform))
    # transform2=np.transpose(transform)
     return transform.T

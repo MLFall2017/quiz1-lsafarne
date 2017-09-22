@@ -6,8 +6,8 @@ from PCAFunction import pca
 dataSet = pd.read_csv('dataset_1.csv')
 dataSet=dataSet.values
 #--------------------------------------------
-k=2 #number of principal components to keep
+k=3 #number of principal components to keep
 pcaMatrix=pca(dataSet,k)
 y=np.matmul(dataSet,pcaMatrix)
-print(y)
+print("new components {}".format(y))
 
