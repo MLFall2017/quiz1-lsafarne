@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from numpy import linalg as la
+import math
 def pca(dataSet,k):
     """Principal Component analysis"""
     # --------------------Step 1: Computing the Mean of Each Random Variable-------------
@@ -19,7 +20,7 @@ def pca(dataSet,k):
     cov_data = np.cov(mean_cent_data.T)
     stan = mean_cent_data
     for i in range(num_v):
-        stan[:,i]=stan[:,i]/cov_data[i,i]
+        stan[:,i]=stan[:,i]/math.sqrt(cov_data[i,i])
     print(stan.shape)
     cov_dataNew=np.cov(mean_cent_data.T)
     print("Covariance matrix is: {}".format(cov_data.shape))
@@ -27,7 +28,7 @@ def pca(dataSet,k):
     print("Covariance matrix for x,y: {}".format(np.cov(mean_cent_data[:,0],mean_cent_data[:,1])))
     #print("Covariance matrix for y,z: {}".format(np.cov(mean_cent_data[:,1],mean_cent_data[:,2])))
     totalVar=0
-    for i in range(40):
+    for i in range(49):
         totalVar=totalVar+cov_data[i,i]
     print("totalVar origin {}".format(totalVar))
 
