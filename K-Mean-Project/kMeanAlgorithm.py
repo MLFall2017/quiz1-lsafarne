@@ -27,7 +27,8 @@ def kMean(dtset, k, iter):
     # -----------------Initialization--------------------
     meanRangeVals = util.mean_range(dtset)
     #centroids = util.centroidGenerator(meanRangeVals, k)
-    centroids = util.centroid_pick(dtset,k)
+    #centroids = util.centroid_pick(dtset,k)
+    centroids = util.first_k_centroids(dtset, k)
 
     result = {}
     numFeatures = dtset.shape[1]
